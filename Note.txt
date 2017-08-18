@@ -1,0 +1,7 @@
+﻿Bổ sung vô report:
+1) index.html: <input id="colorpicker" onchange="pickColor(this.value)" type="color" name="favcolor">
+- Input type="color" không hỗ trợ trong IE/Edge hoặc Safari (Test thử trên safari dùm t nha)
+
+2) main.js: handleToolDown(e): colorpicker: ctx.getImageData().data
+- Trả về mảng 4 giá trị: (R,G,B, Opacity)
+- Trường hợp màu trắng, giá trị đúng là (255, 255, 255, 1) => nó là (0, 0, 0, 0) => có nghĩa là fill màu đen với opacity là 0 (vì ban đầu chưa tô màu cho nó)

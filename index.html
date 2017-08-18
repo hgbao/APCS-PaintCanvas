@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<script src="assets/js/jquery-2.2.3.min.js"></script>
+<script src="assets/js/setting.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/shapes/Point.js"></script>
+<script src="assets/js/shapes/Shape.js"></script>
+<script src="assets/js/shapes/basic/Line.js"></script>
+<script src="assets/js/shapes/basic/Rectangle.js"></script>
+<script src="assets/js/shapes/basic/Equilateral.js"></script>
+<script src="assets/js/shapes/basic/Ellipse.js"></script>
+<script src="assets/js/shapes/basic/Polygon.js"></script>
+<script src="assets/js/shapes/basic/Pentagon.js"></script>
+<script src="assets/js/shapes/basic/Curve.js"></script>
+<script src="assets/js/shapes/custom/Star.js"></script>
+<script src="assets/js/shapes/custom/Arrow.js"></script>
+<script src="assets/js/shapes/custom/Chatbox.js"></script>
+
+<body onload="init()">
+  <header>
+    <!-- Tools -->
+    <div class="tool-box">
+      <ul>
+        <li><input id="pencil" onclick="chooseTool(this.id)" type="image" alt="" src="assets/img/tools/pencil.png"></li>
+        <li><input id="fillcolor" onclick="chooseTool(this.id)" type="image" alt="" src="assets/img/tools/fillcolor.png"></li>
+      </ul>
+      <ul>
+        <li><input id="eraser" onclick="chooseTool(this.id)" type="image" alt="" src="assets/img/tools/eraser.png"></li>
+        <li><input id="colorpicker" onclick="chooseTool(this.id)" type="image" alt="" src="assets/img/tools/colorpicker.png"></li>
+      </ul>
+      <p>Tools</p>
+    </div>
+    <!-- Shape -->
+    <div class="tool-box">
+      <ul>
+        <li><input id="line" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/line.png"></li>
+        <li><input id="curve" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/curve.png"></li>
+        <li><input id="equilateral" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/equilateral.png"></li>
+        <li><input id="ellipse" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/ellipse.png"></li>
+        <li><input id="rectangle" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/rectangle.png"></li>
+      </ul>
+      <ul>
+        <li><input id="polygon" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/polygon.png"></li>
+        <li><input id="pentagon" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/pentagon.png"></li>
+        <li><input id="star" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/star.png"></li>
+        <li><input id="arrow" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/arrow.png"></li>
+        <li><input id="chatbox" onclick="chooseShape(this.id)" type="image" alt="" src="assets/img/shapes/chatbox.png"></li>
+      </ul>
+      <p>Shapes</p>
+    </div>
+    <!-- Color -->
+    <div class="color-box">
+      <div class="color-box-quick active" id="color-quick-1" style="background:black" onclick="chooseColor(this.id)"></div>
+      <div class="color-box-quick" id="color-quick-2" style="background:white" onclick="chooseColor(this.id)"></div>
+      <div style="float:left; padding:10px 10px 0px 10px;">
+        <ul>
+          <li><div id="#FF0000" style="background:#FF0000" onclick="pickColor(this.id)"></div></li>
+          <li><div id="#00FF00" style="background:#00FF00" onclick="pickColor(this.id)"></div></li>
+          <li><div id="#0000FF" style="background:#0000FF" onclick="pickColor(this.id)"></div></li>
+          <li><div id="#FFFF00" style="background:#FFFF00" onclick="pickColor(this.id)"></div></li>
+        </ul>
+        <ul>
+          <li><div id="#FF00FF" style="background:#FF00FF" onclick="pickColor(this.id)"></div></li>
+          <li><div id="#00FFFF" style="background:#00FFFF" onclick="pickColor(this.id)"></div></li>
+          <li><div id="#FFFFFF" style="background:#FFFFFF" onclick="pickColor(this.id)"></div></li>
+          <li><div id="#000000" style="background:#000000" onclick="pickColor(this.id)"></div></li>
+        </ul>
+      </div>
+      <input id="inputcolor" onchange="pickColor(this.value)" type="color" name="favcolor">
+      <p>Colors</p>
+    </div>
+    <!-- Setting -->
+    <div class="setting-box">
+      <ul>
+        <li><input type="range" id="rangeThickness" value="20" onchange="changeThickness(this.value)"></li>
+      </ul>
+      <hr id="rangeDemo"><span id="rangeValue">2px</span>
+      <p>Thickness</p>
+   </div>
+ </header>
+
+ <div class="wrapper">
+  <canvas id="canvasGrid"></canvas>
+  <canvas id="canvas"></canvas>
+  <canvas id="canvasTmp"></canvas>
+</div>
+</body>
+</html>
